@@ -8,7 +8,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // 🟢 허용할 HTTP 메서드 지정
   allowedHeaders: ['Content-Type'],  // 🟢 요청 허용 헤더 지정
 }));
-
+//app.use(cors());  // 🟢 모든 요청을 허용
 app.use(express.json()); // JSON 파싱
 
 // MySQL 연결 설정
@@ -69,8 +69,14 @@ app.delete('/memos/:id', (req, res) => {
   });
 });
 
-// ✅ `PORT`를 한 번만 선언하도록 수정!
+// 서버 실행
+// const PORT = 3000;
+// app.listen(PORT, () => {
+//   console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
+// });
+
+// 서버 실행 (0.0.0.0으로 변경)
 const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`서버가 http://0.0.0.0:${PORT} 에서 실행 중입니다.`);
 });

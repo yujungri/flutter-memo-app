@@ -28,5 +28,14 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+
+	<!-- 🔥 네트워크 요청 허용 설정 추가 -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	
 </dict>
+
 </plist>
