@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'api_service.dart'; // 🟢 API 서비스 불러오기
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp()); //앱을 실행하고, MyApp이 앱의 기본 구조가 됨.
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MemoScreen(),
-    );
+    ); //MaterialApp: Flutter에서 기본적인 앱 구조를 설정하는 위젯
   }
 }
 
@@ -52,7 +52,8 @@ class _MemoScreenState extends State<MemoScreen> {
   Future<void> addMemo() async {
     if (titleController.text.isEmpty || contentController.text.isEmpty) return;
     try {
-      Memo newMemo = await apiService.createMemo(titleController.text, contentController.text);
+      Memo newMemo = await apiService.createMemo(
+          titleController.text, contentController.text);
       setState(() {
         memos.add(newMemo);
       });
